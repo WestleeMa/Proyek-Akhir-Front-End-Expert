@@ -28,8 +28,7 @@ class App {
   }
 
   async renderPage() {
-    this._loadingScreen.style.display = 'absolute';
-
+    this._loadingScreen.style.position = 'absolute';
     try {
       const url = UrlParser.parseActiveUrlWithCombiner();
       const page = routes[url];
