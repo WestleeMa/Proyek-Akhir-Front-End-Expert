@@ -6,7 +6,7 @@ const tampilItemResto = (item) => `
       <img
         class="lazyload"
         crossorigin="anonymous"
-        src='${CONFIG.BASE_IMAGE_URL}/medium/${item.pictureId}'
+        data-src='${CONFIG.BASE_IMAGE_URL}/medium/${item.pictureId}'
         alt='${item.name}'
         width="480"
         height="320"
@@ -27,7 +27,7 @@ const tampilDetailResto = (item) => `
       <img
         class="lazyload"
         crossorigin="anonymous"
-        src='${CONFIG.BASE_IMAGE_URL}/large/${item.pictureId}'
+        data-src='${CONFIG.BASE_IMAGE_URL}/large/${item.pictureId}'
         alt='${item.name}'
         width="748"
         height="484"

@@ -52,7 +52,10 @@ nav li a:hover {
 }
 
 .jumbo {
-  background-image: url("../public/images/heros/hero-image_1-large.jpg");
+  background-image: 
+  image-set(
+    url("../public/images/heros/hero-image_1-large.jpg") 1x
+  );
   background-color: rgb(59, 59, 59);
   background-blend-mode: multiply;
   background-repeat: no-repeat;
@@ -301,8 +304,11 @@ footer {
     justify-content: space-between;
   }
 
-  .jumbo {
-    background-image: url("../public/images/heros/hero-image_1-medium.jpg");
+  .jumbo{
+    background-image: 
+    image-set(
+      url("../public/images/heros/hero-image_1-medium.jpg") 1x
+    );
   }
 
   .cardRestoran img {
@@ -358,8 +364,11 @@ footer {
     right: 0;
   }
 
-  .jumbo {
-    background-image: url("../public/images/heros/hero-image_1-small.jpg");
+  .jumbo{
+    background-image: 
+    image-set(
+      url("../public/images/heros/hero-image_1-small.jpg") 1x
+    );
   }
 
   #hamburger {
