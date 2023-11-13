@@ -1,10 +1,13 @@
 {
+    "plugins": [
+        "codeceptjs"
+    ],
     "env": {
         "browser": true,
         "es2021": true,
         "node": true,
         "jest": true,
-        "codeceptjs": true
+        "codeceptjs/codeceptjs": true
     },
     "extends": "airbnb-base",
     "parserOptions": {
@@ -20,6 +23,7 @@
         "linebreak-style": 0,
         "consistent-return": 0,
         "no-return-assign": 0,
-        "no-prototype-builtins": 0
+        "no-prototype-builtins": 0,
+        "prefer-destructuring": 0
     }
 }

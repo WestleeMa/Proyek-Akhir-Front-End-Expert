@@ -3,12 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'src/scripts/index.js'),
-    sw: path.resolve(__dirname, 'src/scripts/sw.js'),
+    // sw: path.resolve(__dirname, 'src/scripts/sw.js'),
   },
   mode: 'production',
   output: {
@@ -77,6 +78,25 @@ module.exports = {
           quality: 50,
           progressive: true,
         }),
+      ],
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: './sw.bundle.js',
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'api-resto',
+          },
+        },
+        {
+          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'api-gambar-resto',
+          },
+        },
       ],
     }),
   ],
